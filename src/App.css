@@ -113,20 +113,25 @@ form > button:active {
   text-align: center;
 }
 
-.todo > input,
+.todo input,
 .todo a {
   cursor: pointer;
 }
 
-.todos-completed > div > .todo {
+.todo {
   display: flex;
   justify-content: space-between;
   padding: 5.5px 20px;
 }
 
-.todo > input {
-  margin: 0 20px !important;
+.todo input {
+  margin: 0px 20px !important;
   width: 20px;
+  height: 20px;
+}
+
+.todo span:first-child {
+  margin-left: 20px !important;
 }
 
 @media screen and (max-width: 1760px) {

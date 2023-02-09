@@ -1,6 +1,8 @@
 import React from "react";
 
-const InputForm = ({ todo, setTodo, handleFormSubmit }) => {
+const InputForm = (props) => {
+  const { todo, setTodo, handleFormSubmit } = props;
+
   return (
     <div className="input-todo">
       <form onSubmit={(event) => handleFormSubmit(event)}>

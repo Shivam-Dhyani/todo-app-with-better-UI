@@ -1,8 +1,14 @@
+import editIcon from "../assests/images/edit-icon.png";
 import deleteIcon from "../assests/images/delete-icon.png";
 
 const DisplayTodos = (props) => {
-  const { todoListData, handleCheckbox, completedTodoList, handleDelete } =
-    props;
+  const {
+    todoListData,
+    handleCheckbox,
+    completedTodoList,
+    handleDelete,
+    handleEdit,
+  } = props;
   return (
     <div className="tasks">
       <div className="todos-to-be-done">
@@ -11,11 +17,16 @@ const DisplayTodos = (props) => {
 
           {todoListData?.map((item, index) => (
             <div className="todo" key={index}>
-              <input
-                type="checkbox"
-                onChange={(event) => handleCheckbox(event, index)}
-              />
-              {item}
+              <div>
+                <input
+                  type="checkbox"
+                  onChange={(event) => handleCheckbox(event, index)}
+                />
+                <span>{item}</span>
+              </div>
+              <a onClick={() => handleEdit(index)}>
+                <img src={editIcon} alt="" />
+              </a>
             </div>
           ))}
         </div>
@@ -25,7 +36,7 @@ const DisplayTodos = (props) => {
           <h1>Completed Todos</h1>
           {completedTodoList.map((item, index) => (
             <div className="todo" key={index}>
-              {item}
+              <span>{item}</span>
               <a onClick={() => handleDelete(index)}>
                 <img src={deleteIcon} alt="" />
               </a>
